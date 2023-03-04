@@ -1,14 +1,6 @@
-# 0map
+Based on: https://github.com/imdataman/vue-d3-map
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+TopoJSON data from: https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json
 
 ## Project Setup
 
