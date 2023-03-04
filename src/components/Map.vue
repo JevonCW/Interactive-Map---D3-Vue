@@ -7,6 +7,7 @@
         <div class="container">
             <text id="tooltip">{{ displayedCountry }}</text>
         </div>
+        <Modal :selectedCountry="selectedCountry" @close="closeModal" />
     </div>
   </template>
   
@@ -15,14 +16,19 @@
   import { geoPath, geoEquirectangular } from "d3-geo";
   import * as selection from "d3-selection";
   import { feature } from "topojson-client";
+  import Modal from "@/components/Modal.vue";
   
   export default {
     name: "Map",
+    components: {
+      Modal
+    },
     data() {
       return {
         // Reads TopoJSON file and extracts country features
         myJson: feature(json, json.objects["countries"]),
         displayedCountry: "",
+        selectedCountry: "",
         hoveredCountry: null,
         width: 900,
         height: 425
@@ -45,7 +51,11 @@
         return selection.select(".canvas");
         }
     },
-    methods: {},
+    methods: {
+      closeModal() {
+        this.selectedCountry = "";
+      },
+    },
     mounted() {
         // for each feature in the myJson data object, append a path element to the pathgroup
       this.g
@@ -67,6 +77,9 @@
               this.hoveredCountry = null;
               selection.select(event.target).attr("fill", "aliceblue");
               this.displayedCountry = "";
+          })
+          .on("click", (event, feature) => {
+              this.selectedCountry = feature.properties.name;
           });
     }
   };
