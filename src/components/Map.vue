@@ -88,8 +88,8 @@
   <style>
   .country {
     cursor: pointer;
-    stroke: lightgray;
-    stroke-width: 0.5px;
+    stroke: black;
+    stroke-width: 0.3px;
   }
   .container {
     position: relative;
